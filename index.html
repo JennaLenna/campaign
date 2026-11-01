@@ -6,14 +6,14 @@
     <title>Jenna for Treasurer</title>
     <style>
       :root {
-        --red: #c53b32;
+        --red: #d64036;
         --red-dark: #8f2725;
-        --black: #171717;
-        --cream: #f1e4c8;
-        --paper: #d7c6a5;
-        --ink: #211d1b;
+        --black: #111111;
+        --cream: #f2e4c5;
+        --paper: #cdbb98;
+        --ink: #171313;
         --display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-        --body: "Trebuchet MS", Arial, sans-serif;
+        --body: Arial, Helvetica, sans-serif;
       }
 
       * {
@@ -28,7 +28,8 @@
         margin: 0;
         font-family: var(--body);
         background:
-          linear-gradient(135deg, transparent 0 46%, rgba(197, 59, 50, 0.1) 46% 48%, transparent 48% 100%),
+          linear-gradient(135deg, transparent 0 28%, var(--red) 28% 30%, transparent 30% 100%),
+          repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 9px),
           var(--black);
         color: var(--cream);
         line-height: 1.6;
@@ -42,14 +43,43 @@
         position: relative;
       }
 
+      .poster::before,
+      .poster::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      .poster::before {
+        width: 110px;
+        height: 110px;
+        border: 16px solid var(--red);
+        transform: rotate(45deg);
+        top: 320px;
+        left: -72px;
+      }
+
+      .poster::after {
+        width: 0;
+        height: 0;
+        border-left: 46px solid transparent;
+        border-right: 46px solid transparent;
+        border-bottom: 82px solid var(--cream);
+        right: -25px;
+        top: 730px;
+        transform: rotate(-18deg);
+      }
+
       header {
-        background: var(--cream);
-        border: 4px solid var(--red);
-        color: var(--ink);
+        background: var(--black);
+        border: 5px solid var(--red);
+        color: var(--cream);
         padding: clamp(1.5rem, 5vw, 3.75rem) clamp(1rem, 5vw, 3.5rem);
         position: relative;
         isolation: isolate;
-        box-shadow: 12px 12px 0 var(--red-dark);
+        box-shadow: 14px 14px 0 var(--red);
+        overflow: hidden;
       }
 
       header::before,
@@ -57,28 +87,28 @@
         content: "";
         position: absolute;
         z-index: -1;
-        border-radius: 50%;
+        background: var(--red);
       }
 
       header::before {
-        width: 120px;
-        height: 120px;
-        background: var(--red);
-        top: -42px;
-        right: 7%;
+        width: 180px;
+        height: 180px;
+        top: -80px;
+        right: -42px;
+        transform: rotate(45deg);
       }
 
       header::after {
-        width: 52px;
-        height: 52px;
-        background: var(--black);
-        bottom: -24px;
-        left: 8%;
+        width: 90px;
+        height: 90px;
+        bottom: -52px;
+        left: 12%;
+        border-radius: 50%;
       }
 
       h1 {
         margin: 0;
-        color: var(--red);
+        color: var(--cream);
         font-family: var(--display);
         font-size: clamp(2.6rem, 10vw, 6.2rem);
         letter-spacing: 0.025em;
@@ -111,26 +141,38 @@
       section {
         margin-top: 3.5rem;
         padding: clamp(1.2rem, 4vw, 2rem);
-        background: var(--paper);
-        color: var(--ink);
-        border: 3px solid var(--cream);
+        background: var(--red);
+        color: var(--cream);
+        border: 0;
+        border-left: 14px solid var(--cream);
         position: relative;
+        box-shadow: 12px 12px 0 var(--black);
       }
 
       section::before {
         content: "";
         position: absolute;
-        width: 32px;
-        height: 32px;
-        background: var(--red);
-        top: -17px;
-        left: 10%;
+        width: 38px;
+        height: 38px;
+        background: var(--black);
+        top: -19px;
+        left: 9%;
         transform: rotate(45deg);
+      }
+
+      section:nth-of-type(2) {
+        background: var(--black);
+        border-left-color: var(--red);
+        box-shadow: 12px 12px 0 var(--red-dark);
+      }
+
+      section:nth-of-type(2)::before {
+        background: var(--red);
       }
 
       h2 {
         margin: 0 0 1.25rem;
-        color: var(--black);
+        color: var(--cream);
         font-family: var(--display);
         font-size: clamp(1.8rem, 5vw, 3rem);
         line-height: 0.95;
@@ -146,8 +188,9 @@
       }
 
       .item {
-        background: var(--cream);
-        border: 2px solid var(--ink);
+        background: var(--black);
+        border: 2px solid var(--cream);
+        color: var(--cream);
         padding: 1rem;
         min-height: 150px;
         position: relative;
@@ -160,7 +203,7 @@
         height: 12px;
         right: 10px;
         bottom: 10px;
-        background: var(--red);
+        background: var(--cream);
         transform: rotate(45deg);
       }
 
